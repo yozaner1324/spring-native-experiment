@@ -1,0 +1,49 @@
+plugins {
+    id 'java'
+    id 'org.springframework.boot' version '3.1.0'
+    id 'io.spring.dependency-management' version '1.1.0'
+    id 'org.graalvm.buildtools.native' version '0.9.22'
+}
+
+group = 'org.example'
+version = '1.0-SNAPSHOT'
+
+repositories {
+    mavenCentral()
+    gradlePluginPortal()
+}
+
+dependencies {
+    implementation ('org.springframework.boot:spring-boot-starter-web') {
+        exclude module: 'commons-logging'
+    }
+    implementation ("com.vmware.gemfire:spring-data-3.1-gemfire-10.0:1.0.0-build.9999") {
+        exclude module: 'commons-logging'
+    }
+    implementation ("com.vmware.gemfire:gemfire-core:10.0.0") {
+        exclude module: 'commons-logging'
+    }
+
+
+    testImplementation platform('org.junit:junit-bom:5.9.1')
+    testImplementation 'org.junit.jupiter:junit-jupiter'
+}
+
+repositories {
+    mavenLocal()
+    mavenCentral()
+    maven {
+        credentials {
+            username "$gemfireRepoUsername"
+            password "$gemfireRepoPassword"
+        }
+        url = uri("https://commercial-repo.pivotal.io/data3/gemfire-release-repo/gemfire")
+    }
+}
+
+graalvmNative {
+    binaries {
+        main {
+        }
+    }
+}
