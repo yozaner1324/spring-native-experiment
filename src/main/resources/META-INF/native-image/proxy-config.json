@@ -15,6 +15,9 @@
     "interfaces":["org.apache.geode.internal.cache.LoaderHelperFactory","org.apache.geode.internal.cache.control.ResourceListener","org.apache.geode.internal.cache.InternalPersistentRegion","org.apache.geode.internal.cache.InternalRegion","org.apache.geode.cache.AttributesMutator","org.apache.geode.cache.CacheStatistics","org.apache.geode.internal.serialization.DataSerializableFixedID","org.apache.geode.internal.cache.extension.Extensible","org.apache.geode.internal.cache.EvictableRegion","org.apache.geode.logging.internal.log4j.api.LogWithToString"]
   },
   {
+    "interfaces":["org.example.OrderRepo","org.springframework.data.repository.Repository","org.springframework.transaction.interceptor.TransactionalProxy","org.springframework.aop.framework.Advised","org.springframework.core.DecoratingProxy"]
+  },
+  {
     "interfaces":["org.example.ProductRepo","org.springframework.data.repository.Repository","org.springframework.transaction.interceptor.TransactionalProxy","org.springframework.aop.framework.Advised","org.springframework.core.DecoratingProxy"]
   },
   {

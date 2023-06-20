@@ -12,11 +12,9 @@ import org.springframework.data.gemfire.config.annotation.ClientCacheApplication
 import org.springframework.data.gemfire.config.annotation.EnableClusterConfiguration;
 import org.springframework.data.gemfire.repository.config.EnableGemfireRepositories;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
 
 import java.lang.management.ManagementFactory;
 
-@RestController
 @EnableClusterConfiguration(useHttp = true, requireHttps = false)
 @SpringBootApplication
 @ClientCacheApplication
@@ -29,10 +27,10 @@ public class MyApplication {
     }
 
     public static void main(String[] args) {
-        SpringApplication.run(MyApplication.class, args);
         long currentTime = System.currentTimeMillis();
         long vmStartTime = ManagementFactory.getRuntimeMXBean().getStartTime();
         System.out.println("Startup time: " + (currentTime - vmStartTime) + "ms");
+        SpringApplication.run(MyApplication.class, args);
     }
 
     @Bean
@@ -46,11 +44,21 @@ public class MyApplication {
     }
 
     @Bean
-    public ClientRegionFactoryBean<String, Product> productsRegionFactoryBean(GemFireCache cache) {
+    public ClientRegionFactoryBean<String, Product> productRegionFactoryBean(GemFireCache cache) {
         ClientRegionFactoryBean<String, Product> clientRegionFactoryBean = new ClientRegionFactoryBean<>();
         clientRegionFactoryBean.setDataPolicy(DataPolicy.REPLICATE);
         clientRegionFactoryBean.setShortcut(ClientRegionShortcut.PROXY);
         clientRegionFactoryBean.setRegionName("Product");
+        clientRegionFactoryBean.setCache(cache);
+        return clientRegionFactoryBean;
+    }
+
+    @Bean
+    public ClientRegionFactoryBean<String, Order> orderRegionFactoryBean(GemFireCache cache) {
+        ClientRegionFactoryBean<String, Order> clientRegionFactoryBean = new ClientRegionFactoryBean<>();
+        clientRegionFactoryBean.setDataPolicy(DataPolicy.REPLICATE);
+        clientRegionFactoryBean.setShortcut(ClientRegionShortcut.PROXY);
+        clientRegionFactoryBean.setRegionName("Order");
         clientRegionFactoryBean.setCache(cache);
         return clientRegionFactoryBean;
     }
