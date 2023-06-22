@@ -380,12 +380,20 @@
     "pattern":"\\Qorg/springframework/web/servlet/config/annotation/WebMvcConfigurationSupport.class\\E"
   }, {
     "pattern":"\\Qorg/springframework/web/servlet/config/annotation/WebMvcConfigurer.class\\E"
+  }, {
+    "pattern":"\\Qorg/springframework/web/util/HtmlCharacterEntityReferences.properties\\E"
   }]},
   "bundles":[{
+    "name":"jakarta.servlet.LocalStrings",
+    "locales":[""]
+  }, {
     "name":"jakarta.servlet.http.LocalStrings",
     "locales":[""]
   }, {
     "name":"org.apache.catalina.authenticator.LocalStrings",
+    "locales":[""]
+  }, {
+    "name":"org.apache.catalina.authenticator.jaspic.LocalStrings",
     "locales":[""]
   }, {
     "name":"org.apache.catalina.connector.LocalStrings",
@@ -433,6 +441,9 @@
     "name":"org.apache.coyote.http11.LocalStrings",
     "locales":[""]
   }, {
+    "name":"org.apache.coyote.http11.filters.LocalStrings",
+    "locales":[""]
+  }, {
     "name":"org.apache.naming.LocalStrings",
     "locales":[""]
   }, {
@@ -449,6 +460,9 @@
     "locales":[""]
   }, {
     "name":"org.apache.tomcat.util.http.LocalStrings",
+    "locales":[""]
+  }, {
+    "name":"org.apache.tomcat.util.http.parser.LocalStrings",
     "locales":[""]
   }, {
     "name":"org.apache.tomcat.util.modeler.LocalStrings",

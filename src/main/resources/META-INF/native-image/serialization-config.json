@@ -7,10 +7,16 @@
       "name":"java.lang.Integer"
     },
     {
+      "name":"java.lang.Long"
+    },
+    {
       "name":"java.lang.Number"
     },
     {
       "name":"java.lang.String"
+    },
+    {
+      "name":"org.example.Order"
     },
     {
       "name":"org.example.Product"
