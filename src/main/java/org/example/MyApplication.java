@@ -20,7 +20,7 @@ import java.lang.management.ManagementFactory;
 @SpringBootApplication
 @ClientCacheApplication
 @EnableGemfireRepositories
-@EnablePdx(readSerialized = true)
+@EnablePdx
 public class MyApplication {
 
     @RequestMapping("/")

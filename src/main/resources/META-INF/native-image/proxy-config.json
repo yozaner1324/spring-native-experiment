@@ -25,5 +25,8 @@
   },
   {
     "interfaces":["org.springframework.web.bind.annotation.RequestMapping"]
+  },
+  {
+    "interfaces":["org.springframework.web.bind.annotation.RequestParam"]
   }
 ]
