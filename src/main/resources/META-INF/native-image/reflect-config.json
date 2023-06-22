@@ -30,9 +30,6 @@
   "name":"[Ljava.lang.String;"
 },
 {
-  "name":"[Ljava.lang.annotation.Annotation;"
-},
-{
   "name":"[Ljava.lang.constant.Constable;"
 },
 {
@@ -66,13 +63,6 @@
 },
 {
   "name":"[Z"
-},
-{
-  "name":"antlr.CommonToken",
-  "methods":[{"name":"<init>","parameterTypes":[] }]
-},
-{
-  "name":"antlr.Token"
 },
 {
   "name":"apple.security.AppleProvider",
@@ -132,7 +122,7 @@
   "name":"com.fasterxml.jackson.core.ObjectCodec",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
-  "methods":[{"name":"getJsonFactory","parameterTypes":[] }, {"name":"readValues","parameterTypes":["com.fasterxml.jackson.core.JsonParser","com.fasterxml.jackson.core.type.ResolvedType"] }, {"name":"readValues","parameterTypes":["com.fasterxml.jackson.core.JsonParser","com.fasterxml.jackson.core.type.TypeReference"] }, {"name":"readValues","parameterTypes":["com.fasterxml.jackson.core.JsonParser","java.lang.Class"] }]
+  "methods":[{"name":"getJsonFactory","parameterTypes":[] }, {"name":"readValues","parameterTypes":["com.fasterxml.jackson.core.JsonParser","com.fasterxml.jackson.core.type.TypeReference"] }, {"name":"readValues","parameterTypes":["com.fasterxml.jackson.core.JsonParser","java.lang.Class"] }]
 },
 {
   "name":"com.fasterxml.jackson.core.TreeCodec",
@@ -580,7 +570,7 @@
 {
   "name":"java.lang.Class",
   "queryAllDeclaredMethods":true,
-  "methods":[{"name":"<init>","parameterTypes":["java.lang.String"] }, {"name":"from","parameterTypes":["java.lang.String"] }, {"name":"getRecordComponents","parameterTypes":[] }, {"name":"of","parameterTypes":["java.lang.String"] }, {"name":"valueOf","parameterTypes":["java.lang.String"] }]
+  "methods":[{"name":"<init>","parameterTypes":["java.lang.String"] }, {"name":"from","parameterTypes":["java.lang.String"] }, {"name":"of","parameterTypes":["java.lang.String"] }, {"name":"valueOf","parameterTypes":["java.lang.String"] }]
 },
 {
   "name":"java.lang.ClassLoader",
@@ -588,18 +578,11 @@
   "methods":[{"name":"defineClass","parameterTypes":["java.lang.String","byte[]","int","int","java.security.ProtectionDomain"] }]
 },
 {
-  "name":"java.lang.Comparable",
-  "queryAllDeclaredMethods":true
-},
-{
   "name":"java.lang.Double",
   "fields":[{"name":"TYPE"}]
 },
 {
   "name":"java.lang.Float",
-  "allDeclaredFields":true,
-  "queryAllDeclaredMethods":true,
-  "queryAllDeclaredConstructors":true,
   "fields":[{"name":"TYPE"}]
 },
 {
@@ -624,9 +607,7 @@
   "queryAllDeclaredMethods":true
 },
 {
-  "name":"java.lang.Number",
-  "allDeclaredFields":true,
-  "queryAllDeclaredMethods":true
+  "name":"java.lang.Number"
 },
 {
   "name":"java.lang.Object",
@@ -687,12 +668,7 @@
 },
 {
   "name":"java.lang.constant.Constable",
-  "queryAllDeclaredMethods":true,
   "queryAllPublicMethods":true
-},
-{
-  "name":"java.lang.constant.ConstantDesc",
-  "queryAllDeclaredMethods":true
 },
 {
   "name":"java.lang.invoke.TypeDescriptor$OfField",
@@ -713,11 +689,7 @@
 },
 {
   "name":"java.lang.reflect.ParameterizedType",
-  "methods":[{"name":"getActualTypeArguments","parameterTypes":[] }, {"name":"getOwnerType","parameterTypes":[] }, {"name":"getRawType","parameterTypes":[] }]
-},
-{
-  "name":"java.lang.reflect.RecordComponent",
-  "methods":[{"name":"getName","parameterTypes":[] }, {"name":"getType","parameterTypes":[] }]
+  "methods":[{"name":"getActualTypeArguments","parameterTypes":[] }, {"name":"getRawType","parameterTypes":[] }]
 },
 {
   "name":"java.lang.reflect.Type",
@@ -783,9 +755,6 @@
   "name":"java.util.ArrayList"
 },
 {
-  "name":"java.util.Collection"
-},
-{
   "name":"java.util.Date"
 },
 {
@@ -815,10 +784,6 @@
 },
 {
   "name":"java.util.Set"
-},
-{
-  "name":"java.util.concurrent.Callable",
-  "methods":[{"name":"call","parameterTypes":[] }]
 },
 {
   "name":"java.util.concurrent.ConcurrentMap",
@@ -1139,41 +1104,6 @@
 },
 {
   "name":"org.apache.geode.cache.query.internal.index.IndexCreationData",
-  "methods":[{"name":"<init>","parameterTypes":[] }]
-},
-{
-  "name":"org.apache.geode.cache.query.internal.parse.ASTAggregateFunc",
-  "methods":[{"name":"<init>","parameterTypes":["antlr.Token"] }]
-},
-{
-  "name":"org.apache.geode.cache.query.internal.parse.ASTCombination",
-  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"<init>","parameterTypes":["antlr.Token"] }]
-},
-{
-  "name":"org.apache.geode.cache.query.internal.parse.ASTDummy",
-  "methods":[{"name":"<init>","parameterTypes":["antlr.Token"] }]
-},
-{
-  "name":"org.apache.geode.cache.query.internal.parse.ASTIteratorDef",
-  "methods":[{"name":"<init>","parameterTypes":[] }]
-},
-{
-  "name":"org.apache.geode.cache.query.internal.parse.ASTProjection",
-  "methods":[{"name":"<init>","parameterTypes":[] }]
-},
-{
-  "name":"org.apache.geode.cache.query.internal.parse.ASTRegionPath",
-  "methods":[{"name":"<init>","parameterTypes":["antlr.Token"] }]
-},
-{
-  "name":"org.apache.geode.cache.query.internal.parse.ASTSelect",
-  "methods":[{"name":"<init>","parameterTypes":["antlr.Token"] }]
-},
-{
-  "name":"org.apache.geode.cache.query.internal.parse.ASTUnsupported"
-},
-{
-  "name":"org.apache.geode.cache.query.internal.parse.GemFireAST",
   "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
@@ -3048,20 +2978,14 @@
   "name":"org.elasticsearch.client.RestClientBuilder"
 },
 {
-  "name":"org.example$Order_Accessor_x6ojoa"
-},
-{
-  "name":"org.example$Product_Accessor_ugs661"
-},
-{
-  "name":"org.example$Product_Instantiator_ugs661"
+  "name":"org.example$Product_Accessor_ssfc80"
 },
 {
   "name":"org.example.ApplicationController",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
   "queryAllDeclaredConstructors":true,
-  "methods":[{"name":"<init>","parameterTypes":["org.example.ProductRepo","org.example.OrderRepo"] }, {"name":"home","parameterTypes":[] }, {"name":"order","parameterTypes":["java.lang.String","java.lang.Integer"] }, {"name":"orders","parameterTypes":[] }, {"name":"products","parameterTypes":[] }, {"name":"stock","parameterTypes":["java.lang.String","java.lang.Float","java.lang.Integer"] }]
+  "methods":[{"name":"<init>","parameterTypes":["org.example.ProductRepo","org.example.OrderRepo"] }]
 },
 {
   "name":"org.example.MyApplication",
@@ -3100,17 +3024,11 @@
   "queryAllPublicMethods":true
 },
 {
-  "name":"org.example.Order_Accessor_x6ojoa",
-  "queryAllPublicConstructors":true,
-  "methods":[{"name":"<init>","parameterTypes":["org.example.Order"] }]
-},
-{
   "name":"org.example.Product",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
   "queryAllPublicMethods":true,
-  "queryAllDeclaredConstructors":true,
-  "methods":[{"name":"name","parameterTypes":[] }, {"name":"price","parameterTypes":[] }, {"name":"quantity","parameterTypes":[] }]
+  "queryAllDeclaredConstructors":true
 },
 {
   "name":"org.example.ProductRepo",
@@ -3118,13 +3036,9 @@
   "queryAllPublicMethods":true
 },
 {
-  "name":"org.example.Product_Accessor_ugs661",
+  "name":"org.example.Product_Accessor_ssfc80",
   "queryAllPublicConstructors":true,
   "methods":[{"name":"<init>","parameterTypes":["org.example.Product"] }]
-},
-{
-  "name":"org.example.Product_Instantiator_ugs661",
-  "methods":[{"name":"<init>","parameterTypes":[] }]
 },
 {
   "name":"org.flywaydb.core.Flyway"
@@ -4993,10 +4907,6 @@
   "methods":[{"name":"<init>","parameterTypes":["java.lang.Class"] }]
 },
 {
-  "name":"org.springframework.data.gemfire.config.annotation.ClientCacheConfigurer",
-  "queryAllPublicMethods":true
-},
-{
   "name":"org.springframework.data.gemfire.config.annotation.ClusterConfigurationConfiguration",
   "allDeclaredFields":true,
   "allDeclaredClasses":true,
@@ -5032,34 +4942,6 @@
 {
   "name":"org.springframework.data.gemfire.config.annotation.EnableClusterConfiguration",
   "queryAllDeclaredMethods":true
-},
-{
-  "name":"org.springframework.data.gemfire.config.annotation.EnablePdx",
-  "queryAllDeclaredMethods":true
-},
-{
-  "name":"org.springframework.data.gemfire.config.annotation.PdxConfiguration",
-  "allDeclaredClasses":true,
-  "queryAllDeclaredMethods":true,
-  "methods":[{"name":"clientCachePdxConfigurer","parameterTypes":[] }, {"name":"pdxDiskStoreAwareBeanFactoryPostProcessor","parameterTypes":[] }, {"name":"peerCachePdxConfigurer","parameterTypes":[] }, {"name":"setImportMetadata","parameterTypes":["org.springframework.core.type.AnnotationMetadata"] }]
-},
-{
-  "name":"org.springframework.data.gemfire.config.annotation.PdxConfiguration$$SpringCGLIB$$0",
-  "allDeclaredFields":true,
-  "fields":[{"name":"CGLIB$FACTORY_DATA"}],
-  "methods":[{"name":"<init>","parameterTypes":[] }, {"name":"CGLIB$SET_STATIC_CALLBACKS","parameterTypes":["org.springframework.cglib.proxy.Callback[]"] }, {"name":"CGLIB$SET_THREAD_CALLBACKS","parameterTypes":["org.springframework.cglib.proxy.Callback[]"] }]
-},
-{
-  "name":"org.springframework.data.gemfire.config.annotation.PdxConfiguration$$SpringCGLIB$$1",
-  "methods":[{"name":"<init>","parameterTypes":["java.lang.Class"] }]
-},
-{
-  "name":"org.springframework.data.gemfire.config.annotation.PdxConfiguration$$SpringCGLIB$$2",
-  "methods":[{"name":"<init>","parameterTypes":["java.lang.Class"] }]
-},
-{
-  "name":"org.springframework.data.gemfire.config.annotation.PeerCacheConfigurer",
-  "queryAllPublicMethods":true
 },
 {
   "name":"org.springframework.data.gemfire.config.annotation.support.AbstractAnnotationConfigSupport",
@@ -5125,17 +5007,13 @@
   "queryAllDeclaredMethods":true,
   "queryAllPublicMethods":true,
   "queryAllDeclaredConstructors":true,
-  "methods":[{"name":"<init>","parameterTypes":["org.springframework.data.gemfire.GemfireTemplate","org.springframework.data.repository.core.EntityInformation"] }, {"name":"count","parameterTypes":[] }, {"name":"findAll","parameterTypes":[] }, {"name":"findById","parameterTypes":["java.lang.Object"] }, {"name":"save","parameterTypes":["java.lang.Object"] }]
+  "methods":[{"name":"<init>","parameterTypes":["org.springframework.data.gemfire.GemfireTemplate","org.springframework.data.repository.core.EntityInformation"] }, {"name":"findById","parameterTypes":["java.lang.Object"] }, {"name":"save","parameterTypes":["java.lang.Object"] }]
 },
 {
   "name":"org.springframework.data.gemfire.support.AbstractFactoryBeanSupport",
   "allDeclaredFields":true,
   "queryAllDeclaredMethods":true,
   "methods":[{"name":"getBeanClassLoader","parameterTypes":[] }, {"name":"getBeanFactory","parameterTypes":[] }, {"name":"getBeanName","parameterTypes":[] }, {"name":"isDebugLoggingEnabled","parameterTypes":[] }, {"name":"isErrorLoggingEnabled","parameterTypes":[] }, {"name":"isInfoLoggingEnabled","parameterTypes":[] }, {"name":"isSingleton","parameterTypes":[] }, {"name":"isWarnLoggingEnabled","parameterTypes":[] }, {"name":"setBeanClassLoader","parameterTypes":["java.lang.ClassLoader"] }, {"name":"setBeanFactory","parameterTypes":["org.springframework.beans.factory.BeanFactory"] }, {"name":"setBeanName","parameterTypes":["java.lang.String"] }]
-},
-{
-  "name":"org.springframework.data.gemfire.support.NoOpBeanFactoryPostProcessor",
-  "methods":[{"name":"close","parameterTypes":[] }, {"name":"shutdown","parameterTypes":[] }]
 },
 {
   "name":"org.springframework.data.gemfire.support.SmartLifecycleSupport",
@@ -5171,9 +5049,6 @@
   "queryAllDeclaredMethods":true,
   "queryAllPublicMethods":true,
   "methods":[{"name":"<init>","parameterTypes":["org.springframework.data.gemfire.mapping.GemfireMappingContext"] }, {"name":"from","parameterTypes":["org.springframework.data.gemfire.mapping.GemfireMappingContext"] }, {"name":"getPersistentEntity","parameterTypes":["org.springframework.data.mapping.PersistentProperty"] }, {"name":"getPersistentEntity","parameterTypes":["org.springframework.data.util.TypeInformation"] }, {"name":"getRequiredPersistentEntity","parameterTypes":["java.lang.Class"] }, {"name":"getRequiredPersistentEntity","parameterTypes":["org.springframework.data.mapping.PersistentProperty"] }, {"name":"getRequiredPersistentEntity","parameterTypes":["org.springframework.data.util.TypeInformation"] }, {"name":"of","parameterTypes":["org.springframework.data.gemfire.mapping.GemfireMappingContext"] }, {"name":"valueOf","parameterTypes":["org.springframework.data.gemfire.mapping.GemfireMappingContext"] }]
-},
-{
-  "name":"org.springframework.data.mapping.model.ClassGeneratingEntityInstantiator$ObjectInstantiator"
 },
 {
   "name":"org.springframework.data.querydsl.QuerydslPredicateExecutor"
@@ -5669,10 +5544,6 @@
 },
 {
   "name":"org.springframework.web.bind.annotation.RequestMapping",
-  "queryAllDeclaredMethods":true
-},
-{
-  "name":"org.springframework.web.bind.annotation.RequestParam",
   "queryAllDeclaredMethods":true
 },
 {

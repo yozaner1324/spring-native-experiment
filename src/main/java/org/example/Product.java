@@ -2,5 +2,7 @@ package org.example;
 
 import org.springframework.data.annotation.Id;
 
-public record Product(@Id String name, Float price, Integer quantity) {
+import java.io.Serializable;
+
+public record Product(@Id String name, Float price, Integer quantity) implements Serializable {
 }

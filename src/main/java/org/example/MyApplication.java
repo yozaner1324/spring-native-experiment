@@ -12,7 +12,6 @@ import org.springframework.data.gemfire.config.annotation.ClientCacheApplication
 import org.springframework.data.gemfire.config.annotation.EnableClusterConfiguration;
 import org.springframework.data.gemfire.config.annotation.EnablePdx;
 import org.springframework.data.gemfire.repository.config.EnableGemfireRepositories;
-import org.springframework.web.bind.annotation.RequestMapping;
 
 import java.lang.management.ManagementFactory;
 
@@ -20,13 +19,8 @@ import java.lang.management.ManagementFactory;
 @SpringBootApplication
 @ClientCacheApplication
 @EnableGemfireRepositories
-@EnablePdx
+//@EnablePdx
 public class MyApplication {
-
-    @RequestMapping("/")
-    String home() {
-        return "Hello World!";
-    }
 
     public static void main(String[] args) {
         long currentTime = System.currentTimeMillis();
