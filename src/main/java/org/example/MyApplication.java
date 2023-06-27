@@ -3,6 +3,7 @@ package org.example;
 import org.apache.geode.cache.DataPolicy;
 import org.apache.geode.cache.GemFireCache;
 import org.apache.geode.cache.client.ClientRegionShortcut;
+import org.apache.geode.cache.query.CqEvent;
 import org.springframework.boot.ApplicationRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
@@ -10,16 +11,17 @@ import org.springframework.context.annotation.Bean;
 import org.springframework.data.gemfire.client.ClientRegionFactoryBean;
 import org.springframework.data.gemfire.config.annotation.ClientCacheApplication;
 import org.springframework.data.gemfire.config.annotation.EnableClusterConfiguration;
-import org.springframework.data.gemfire.config.annotation.EnablePdx;
+import org.springframework.data.gemfire.config.annotation.EnableContinuousQueries;
+import org.springframework.data.gemfire.listener.annotation.ContinuousQuery;
 import org.springframework.data.gemfire.repository.config.EnableGemfireRepositories;
 
 import java.lang.management.ManagementFactory;
 
 @EnableClusterConfiguration(useHttp = true, requireHttps = false)
 @SpringBootApplication
-@ClientCacheApplication
+@ClientCacheApplication(readyForEvents = true, subscriptionEnabled = true)
 @EnableGemfireRepositories
-//@EnablePdx
+@EnableContinuousQueries
 public class MyApplication {
 
     public static void main(String[] args) {
@@ -57,5 +59,10 @@ public class MyApplication {
         clientRegionFactoryBean.setRegionName("Order");
         clientRegionFactoryBean.setCache(cache);
         return clientRegionFactoryBean;
+    }
+
+    @ContinuousQuery(name = "ProductCQ", query = "SELECT * FROM /Product where name like 'a%'")
+    public void handleEvent(CqEvent event) {
+        System.out.println("Event: " + event);
     }
 }
