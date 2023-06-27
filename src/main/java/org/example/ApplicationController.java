@@ -1,26 +1,27 @@
 package org.example;
 
+import org.apache.geode.cache.Region;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.transaction.annotation.Transactional;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
+import java.util.Collection;
 import java.util.LinkedList;
 import java.util.List;
-import java.util.Optional;
 
 @RestController
 public class ApplicationController {
 
-    private final ProductRepo productRepo;
-    private final OrderRepo orderRepo;
+    private final Region<String, Product> productRegion;
+    private final Region<Long, Order> orderRegion;
 
     @Autowired
-    public ApplicationController(ProductRepo productRepo, OrderRepo orderRepo) {
+    public ApplicationController(@Qualifier("products") Region<String, Product> productRegion, @Qualifier("orders") Region<Long, Order> orderRegion) {
 
-        this.productRepo = productRepo;
-        this.orderRepo = orderRepo;
+        this.productRegion = productRegion;
+        this.orderRegion = orderRegion;
     }
 
     @RequestMapping("/")
@@ -29,47 +30,42 @@ public class ApplicationController {
     }
 
     @RequestMapping("/products")
-    List<Product> products() {
-        LinkedList<Product> products = new LinkedList<>();
-        productRepo.findAll().forEach(products::add);
-        return products;
+    Collection<Product> products() {
+        return productRegion.getAll(productRegion.keySetOnServer()).values();
     }
 
     @RequestMapping("/orders")
-    List<Order> orders() {
-        LinkedList<Order> orders = new LinkedList<>();
-        orderRepo.findAll().forEach(orders::add);
-        return orders;
+    Collection<Order> orders() {
+        return orderRegion.getAll(orderRegion.keySetOnServer()).values();
     }
 
     @RequestMapping("/order")
-    @Transactional
     public boolean order(@RequestParam String productName, @RequestParam Integer quantity) {
-        Optional<Product> foundProduct = productRepo.findById(productName);
-        if (foundProduct.isEmpty()) {
+        Product foundProduct = productRegion.get(productName);
+        if (foundProduct == null) {
             System.out.println("Product \"" + productName + "\" not found");
             return false;
         }
-        Product product = foundProduct.get();
-        if (product.quantity() < quantity) {
-            System.out.println("Not enough \"" + productName + "\", requested " + quantity + ", but there are only " + product.quantity());
+
+        if (foundProduct.quantity() < quantity) {
+            System.out.println("Not enough \"" + productName + "\", requested " + quantity + ", but there are only " + foundProduct.quantity());
             return false;
         }
-        orderRepo.save(new Order(orderRepo.count(), productName, quantity));
-        productRepo.save(new Product(product.name(), product.price(), product.quantity() - quantity));
+        long size = orderRegion.keySetOnServer().size();
+        orderRegion.put(size, new Order(size, productName, quantity));
+        productRegion.put(foundProduct.name(), new Product(foundProduct.name(), foundProduct.price(), foundProduct.quantity() - quantity));
         return true;
     }
 
     @RequestMapping("/stock")
     public boolean stock(@RequestParam String productName, @RequestParam Float price, @RequestParam Integer quantity) {
-        Optional<Product> foundProduct = productRepo.findById(productName);
-        if (foundProduct.isEmpty()) {
-            productRepo.save(new Product(productName, price, quantity));
+        Product foundProduct = productRegion.get(productName);
+        if (foundProduct == null) {
+            productRegion.put(productName, new Product(productName, price, quantity));
             return true;
         }
-        Product product = foundProduct.get();
 
-        productRepo.save(new Product(product.name(), price, product.quantity() + quantity));
+        productRegion.put(foundProduct.name(), new Product(foundProduct.name(), price, foundProduct.quantity() + quantity));
         return true;
     }
 }
