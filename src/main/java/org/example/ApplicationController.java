@@ -50,7 +50,7 @@ public class ApplicationController {
             return false;
         }
         long size = orderRegion.keySetOnServer().size();
-        orderRegion.put(size, new Order(size, productName, quantity));
+        orderRegion.put(size, new Order(size, new Product(foundProduct.name(), foundProduct.price(), quantity)));
         productRegion.put(foundProduct.name(), new Product(foundProduct.name(), foundProduct.price(), foundProduct.quantity() - quantity));
         return true;
     }
